@@ -1,4 +1,4 @@
-<%= link_to "#{current_order.ord_items.size} Items in Cart", cart_path, class: "btn btn-link" %>
+<%= link_to "#{@order.ord_items.count} Items in Cart", cart_path, class: "btn btn-link" %>
 
 
 <% @items.each do |product| %>

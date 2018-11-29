@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
 	helper_method :current_order
 
 	def current_order
-    order = Ord.find_by_user_id(current_user.id)
-    if order.nil?
-       order = Ord.new 
+    @order = Ord.find_by_user_id(current_user.id)
+    if @order.nil?
+       @order = Ord.new 
     end
     
  end
