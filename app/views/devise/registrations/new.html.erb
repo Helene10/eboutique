@@ -96,55 +96,74 @@
                     <h3 class="log-title">Register</h3>
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-                      <%= devise_error_messages! %>
-                    <div class="form-group">
+                    <%= devise_error_messages! %>
 
+                    <div class="form-group">
                         <%= f.label :email %><br />
-
                         <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder=>"Email", :class=>"form-control", :id=>"register-email"  %>
+                    </div>
 
-                      </div>
                     <div class="form-group">
-
                         <%= f.label :password %>
-
                         <% if @minimum_password_length %>
-
                         <em>(<%= @minimum_password_length %> characters minimum)</em>
-
                         <% end %><br />
-
                         <%= f.password_field :password, autocomplete: "new-password", :class=>"form-control", :id=>"register-password", :placeholder=>"Password" %>
+                    </div>
 
-                      </div>
                     <div class="form-group">
-
                         <%= f.label :password_confirmation %><br />
-
                         <%= f.password_field :password_confirmation, autocomplete: "new-password", :class=>"form-control", :id=>"register-cpassword", :placeholder=>"Confirm Password" %>
-
-                      </div>
+                    </div>
                     <!-- log-line -->
-                  </br>
-                    <div class="log-line reg-form-1 no-margin">
-                        <div class="pull-left">
-                            
-                        <%= f.submit "Sign up", :id=>"reg-submit", :class=>"btn btn-md btn-primary-filled btn-log btn-rounded" %>
 
-                      
-                        </div>
-                        <div class="pull-right">
-                            <%= render "devise/shared/links" %>
-                        </div>
-                      <% end %>
-                    </div><!-- / log-line -->
+                    </br>
+
+                    <div class="log-line reg-form-1 no-margin">
+                        <div class="pull-left">              
+                        <%= f.submit "Sign up", :id=>"reg-submit", :class=>"btn btn-md btn-primary-filled btn-log btn-rounded" %>
+                    </div>
+
+                    <div class="pull-right">
+                        <%= render "devise/shared/links" %>
+                        <% end %>
+                    </div>
+                    <!-- / log-line -->
                 </div>
             </div><!-- / col-sm-6 -->
             <!-- / register form 1 -->
-          </div><!-- / row -->
+        </div><!-- / row -->
         <!-- / form 1 -->
     </div><!-- / container -->
 </section>
+
+<!-- <section id="newsletter">
+    <div class="container">
+        <div class="page-header text-center">
+            <h2>Subscribe for Newsletter</h2>
+        </div>
+            <form action="/" method="post" class="input-group">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="text" class="form-control rounded" name="email" placeholder="Your email address...">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary-filled btn-left btn-newsletter btn-rounded inside" type="submit"><i class="lnr lnr-enter"></i><span>Subscribe</span></button>
+                </span>
+            </form>
+    </div>
+</section> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- javascript -->
 
 <!-- <script src="js/jquery.min.js"></script>

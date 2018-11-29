@@ -20,9 +20,8 @@ class TemplateController < ApplicationController
        format.html { render action: 'new' }
        format.json { render json: @visitor.errors, status: :unprocessable_entity }
      end
-   end
+   	end
 	end
-
 
 	def about
 	end
