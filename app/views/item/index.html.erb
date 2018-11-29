@@ -1,4 +1,7 @@
-<% @item.each do |product| %>
+<%= link_to "#{current_order.ord_items.size} Items in Cart", cart_path, class: "btn btn-link" %>
+
+
+<% @items.each do |product| %>
   <p><%= product.title %> | <%= number_to_currency product.price %>
   <%= form_for @ord_item, :url => { :controller => "ord_item", :action => "create" } do |f| %>
     <%= f.hidden_field :item_id, value: product.id %>

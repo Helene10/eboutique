@@ -1,15 +1,16 @@
 class OrdItemController < ApplicationController
   def create
-  	@order = current_order
-    @item = @order.ord_items.new
+  	
+    @order = current_order
+    @ord_item = @order.ord_items.new(ord_item_params)
     @order.save
-    session[:ord_id] = @order.id
+    @order[:user_id] = current_order.id
     redirect_to item_path
   end
 
    private
 
-  def item_params
+  def ord_item_params
     params.require(:ord_item).permit(:quantity, :item_id)
   end
 end
