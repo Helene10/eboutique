@@ -3,8 +3,8 @@ class OrdItemController < ApplicationController
   	
     @order = current_order
     @ord_item = @order.ord_items.new(ord_item_params)
-    @order.save
-    @order[:user_id] = current_order.id
+    @ord_item.save
+    session[:user_id] = current_order.id
     redirect_to item_path
   end
 
