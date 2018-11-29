@@ -46,6 +46,24 @@ ActiveRecord::Schema.define(version: 2018_11_29_145911) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ord_items", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "item_id"
+    t.bigint "ord_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_ord_items_on_item_id"
+    t.index ["ord_id"], name: "index_ord_items_on_ord_id"
+  end
+
+  create_table "ords", force: :cascade do |t|
+    t.bigint "user_id"
+    t.decimal "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_ords_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -58,10 +76,19 @@ ActiveRecord::Schema.define(version: 2018_11_29_145911) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "visiters", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "visitors", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "ord_items", "items"
+  add_foreign_key "ord_items", "ords"
+  add_foreign_key "ords", "users"
 end
