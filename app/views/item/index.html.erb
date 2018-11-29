@@ -1,0 +1,9 @@
+<% @item.each do |product| %>
+  <p><%= product.title %> | <%= number_to_currency product.price %>
+  <%= form_for @ord_item, :url => { :controller => "ord_item", :action => "create" } do |f| %>
+    <%= f.hidden_field :item_id, value: product.id %>
+    <%= f.number_field :quantity %>
+    <%= f.submit "Add to cart" %>
+  <% end %></p>
+<% end %>
+
