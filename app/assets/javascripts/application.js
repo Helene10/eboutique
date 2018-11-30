@@ -11,11 +11,19 @@
 // about supported directives.
 //
 //
-//
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
 //= require owl.carousel.min
+//= require jquery.countTo
+//= require jquery.easing.min
+//= require jquery.min
+//= require jquery.shuffle.min
+//= require map
+//= require nouislider
+//= require nouislider.min
+//= require preloader
+//= require scrolling-nav
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

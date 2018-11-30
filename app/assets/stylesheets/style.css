@@ -71,7 +71,7 @@ a {
   outline: 0 !important;
 }
 a:hover, a:active, a:focus {
-  color: #cccccc;
+  color: #d9262e;
   text-decoration: none;
 }
 
@@ -572,7 +572,7 @@ select:focus {
 
 .btn-sm {
   font-size: 12px;
-  padding: 7px 15px;
+  padding: 3px 10px;
 }
 
 .btn-xs {
@@ -677,14 +677,14 @@ a.btn {
 
 .btn-primary-filled, .btn-primary-filled:active, .btn-primary-filled:focus {
   color: white;
-  background: #575afe;
-  border: 2px solid #575afe;
+  background: #72171b;
+  border: 2px solid #72171b;
 }
 
 .btn-primary-filled:hover {
   color: white;
-  background: #3e9db8;
-  border: 2px solid #3e9db8;
+  background: #d9262e;
+  border: 2px solid #d9262e;
 }
 
 /* / End Primary Button */
@@ -703,14 +703,14 @@ a.btn {
 
 .btn-success-filled, .btn-success-filled:active, .btn-success-filled:focus {
   color: white;
-  background: #83be50;
-  border: 2px solid #83be50;
+  background: #d9262e;
+  border: 2px solid #d9262e;
 }
 
 .btn-success-filled:hover {
   color: white;
-  background: #679440;
-  border: 2px solid #679440;
+  background: #72171b;
+  border: 2px solid #72171b;
 }
 
 /* / End Success Button */
@@ -781,14 +781,14 @@ a.btn {
 
 .btn-danger-filled, .btn-danger-filled:active, .btn-danger-filled:focus {
   color: white;
-  background: #e31a1a;
-  border: 2px solid #e31a1a;
+  background: #9840cc;
+  border: 2px solid #9840cc;
 }
 
 .btn-danger-filled:hover {
   color: white;
-  background: #bb0707;
-  border: 2px solid #bb0707;
+  background: #7a34a6;
+  border: 2px solid #7a34a6;
 }
 
 /* / End Danger Button */
@@ -1789,7 +1789,7 @@ a.btn-social {
 
 .nav-pills > li > a:hover {
   color: white;
-  background-color: #cccccc;
+  background-color: #72171b;
 }
 
 .nav-pills > li > a {
@@ -2163,8 +2163,8 @@ table.shopping-cart > thead > tr > th, table > thead > tr > td {
 .x-remove {
   text-align: center;
   color: white;
-  background: #e31a1a;
-  border: 2px solid #e31a1a;
+  background: #9840cc;
+  border: 2px solid #9840cc;
   border-radius: 50%;
   height: 20px;
   width: 20px;
@@ -2207,7 +2207,7 @@ table.shopping-cart > thead > tr > th, table > thead > tr > td {
 }
 
 .top-menu a:hover {
-  color: #ffffff !important;
+  color: #d9262e !important;
 }
 
 .top-menu-inverse a {
@@ -2350,7 +2350,7 @@ table.shopping-cart > thead > tr > th, table > thead > tr > td {
 }
 
 .navbar-toggle .icon-bar {
-  background: #4cbbdb;
+  background: #d9262e;
   width: 20px;
   height: 3px;
   border-radius: 5px;
@@ -2390,12 +2390,12 @@ table.shopping-cart > thead > tr > th, table > thead > tr > td {
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
-  color: #cccccc;
+  color: #72171b;
   background-color: transparent;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #4cbbdb;
+  background-color: #d9262e;
 }
 
 .navbar-default .navbar-toggle {
@@ -2790,7 +2790,7 @@ section {
 }
 
 .product:hover .product-title {
-  color: #4cbbdb;
+  color: #d9262e;
 }
 
 .sale-label {
@@ -2862,7 +2862,7 @@ section {
 
 .view-btn {
   display: inline-block;
-  color: #4cbbdb;
+  color: #d9262e;
   background-color: #f8f8f8;
   width: 42px;
   height: 42px;
@@ -2875,14 +2875,14 @@ section {
 }
 
 .view-btn:hover {
-  color: #4cbbdb;
+  color: #72171b;
   background-color: #ebebeb;
 }
 
 .add-to-cart {
   display: inline-block;
   color: white;
-  background-color: #4cbbdb;
+  background-color: #d9262e;
   width: 42px;
   height: 42px;
   text-align: center;
@@ -2895,7 +2895,7 @@ section {
 
 .add-to-cart:hover {
   color: white;
-  background-color: #3e9db8;
+  background-color: #72171b;
 }
 
 .product-title {
@@ -4009,7 +4009,7 @@ footer .widget-title h4 {
 
 footer .widget-title:after {
   content: "";
-  background: #cccccc;
+  background: #d9262e;
   position: absolute;
   height: 2px;
   width: 30px;
@@ -4112,7 +4112,7 @@ footer #newsletter .form-control {
   height: 50px;
   display: inline-block;
   box-sizing: border-box;
-  border-top: solid 3px #4cbbdb;
+  border-top: solid 3px #d9262e;
   border-right: solid 3px transparent;
   border-bottom: solid 3px transparent;
   border-left: solid 3px transparent;
@@ -4239,7 +4239,7 @@ footer #newsletter .form-control {
   }
 
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
-    color: #cccccc;
+    color: #72171b;
     background-color: transparent;
   }
 
@@ -4249,7 +4249,7 @@ footer #newsletter .form-control {
   }
 
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
-    color: #cccccc;
+    color: #72171b;
     background-color: transparent;
   }
 

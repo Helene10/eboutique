@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 		# get '/single/:id', to: 'template#showproduct'
 		get '/item', to: 'template#itemtest'
 		get '/show/:id', to: 'template#show_test', as: 'show'
-		get '/sooory', to: 'template#404'
+		get '/error', to: 'template#404'
 		get '/users/:id', to: 'users#show'
 		resources :product
 		resources :cart
