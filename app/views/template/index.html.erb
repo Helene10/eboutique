@@ -90,44 +90,6 @@
 <!-- / header -->
 
 <!-- content -->
-<!-- featured-products -->
-<section id="featured-products">
-    <div class="page-header text-center wsub">
-        <h2>Featured Products 8</h2>
-    </div><!--/ page-header -->
-    <div id="products-carousel" class="owl-carousel">
-        <% @item.last(8).shuffle.each do |item|  %> 
-        <!-- item -->
-        <div class="item product">
-            <!-- <span class="sale-label">SALE</span> -->
-            <!-- / sale-label -->
-            <a href="/single/<%= item.id %>" class="product-link"></a>
-            <!-- / product-link -->
-            <img src="<%= item.image_url %>">
-            <!-- / product-image -->
-
-            <!-- product-hover-tools -->
-            <div class="product-hover-tools">
-                <a href="/single/<%= item.id %>" class="view-btn">
-                    <i class="lnr lnr-eye"></i>
-                </a>
-                <a href="shopping-cart.html" class="add-to-cart">
-                    <i class="lnr lnr-cart"></i>
-                </a>
-            </div><!-- / product-hover-tools -->
-
-            <!-- product-details -->
-            <div class="product-details">
-                <h3 class="product-title"><%= item.title %></h3>
-                <h6 class="product-price"><%= item.price %> €</h6>
-            </div><!-- / product-details -->
-        </div>
-        <!-- / item --><% end %>
-
-        
-    </div> <!-- / products-carousel -->
-</section>
-<!-- / featured-products -->
 
 <!-- shop 3col -->
 <section id="shop">
@@ -237,18 +199,8 @@
 <!-- / content -->
 
 <!-- javascript -->
-<!-- <script src="../app/assets/javascripts/jquery.min.js"></script>
-<script src="../app/assets/javascripts/bootstrap.min.js"></script>
-<script src="../app/assets/javascripts/jquery.easing.min.js"></script> -->
-
-<!-- scrolling-nav -->
-<!-- <script src="../app/assets/javascripts/scrolling-nav.js"></script> -->
-<!-- / scrolling-nav -->
-
-<!-- sliders -->
-<!-- <script src="../app/assets/javascripts/owl.carousel.min.js"></script> -->
 <!-- featured-products carousel -->
-<script>
+<!-- <script>
     $(document).ready(function() {
       $("#products-carousel").owlCarousel({
         autoPlay: 3000, //set autoPlay to 3 seconds.
@@ -258,32 +210,8 @@
       });
 
     });
-</script>
+</script> -->
 <!-- / featured-products carousel -->
-
-<!-- brands carousel -->
-<script>
-    $(document).ready(function() {
-      $("#brands-carousel").owlCarousel({
-        autoPlay: 5000, //set autoPlay to 5 seconds.
-        items : 5,
-        itemsDesktop : [1199,3],
-        itemsDesktopSmall : [979,3]
-      });
-
-    });
-</script>
-<!-- / brands carousel -->
-<!-- / sliders -->
-
-<!-- shuffle grid-resizer -->
-<!-- <script src="../app/assets/javascripts/jquery.shuffle.min.js"></script>
-<script src="../app/assets/javascripts/custom.js"></script> -->
-<!-- / shuffle grid-resizer -->
-
-<!-- preloader -->
-<!-- <script src="../app/assets/javascripts/preloader.js"></script> -->
-<!-- / preloader -->
 
 <!-- / javascript -->
 </body>
