@@ -51,7 +51,6 @@
                     <td class="image"><a href="/product/<%= item.id %>"><%= image_tag(item.image_url) %></a></td>
                     <td><a href="/product/<%= item.id %>"><%= item.title %></a></td>
                     <td><%= item.price  %> €</td>
-                    <!-- <td class="qty"><input type="number" step="1" min="0" name="cart" value="1" title="Qty" class="input-text qty text" size="4"></td> -->
                     <td>
                       <div class="d-flex flex-row align-items-center justify-content-center">
                         <%= link_to " - ", cart_path(@cart, :id_modify => item.id, :increase => false), class: "btn btn-sm btn-success-filled btn-rounded", remote: true,  method: :patch%>
@@ -89,7 +88,7 @@
             <div class="col-sm-6 cart-checkout">
               <% if @price !=0 %>
                 <a href="/product" class="btn btn-default-filled btn-rounded"><i class="lnr lnr-cart"></i> <span>Continue Shopping</span></a>
-                <%= link_to raw("<i class='lnr lnr-exit'></i>"+"<span>  Proceed to Checkout</span>"), "/charges/new", class: "btn btn-primary-filled btn-rounded" %>
+                <%= link_to raw("<i class='lnr lnr-exit'></i>"+"<span>  Proceed to Checkout</span>"), "/error", class: "btn btn-primary-filled btn-rounded" %>
                 <% end %>
             </div><!-- / cart-checkout -->
             

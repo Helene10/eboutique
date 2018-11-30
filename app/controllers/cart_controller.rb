@@ -87,28 +87,28 @@ class CartController < ApplicationController
     @price
   end
   
-  def checkout
-    if user_signed_in?
-      @cart = Cart.where(:user_id => current_user.id)[0]
-      @content = @cart.items
-      @price = 0
-      @content.each_with_index do |content, index| 
-        @price += content.price * @cart.quantities[index].to_i
-      end
-      if @cart.quantities != []
-        @order = Order.create!(user: @cart.user, quantities: @cart.quantities, price: @price)
-        @order.item_ids = @cart.item_ids
-        @cart.quantities = []
-        @cart.save
-        Cart.where(:user_id => current_user.id)[0].item_ids = []
-        redirect_to "/product"
-        flash[:success] = "Vous avez réussi à passer votre commande. Retrouvez là dans votre onglet commande :)"
-      else
-        redirect_to "/cart"
-        flash[:alert] = "Vous devez avoir des éléments dans votre panier pour commander"
-      end
-    end
-  end
+  # def checkout
+  #   if user_signed_in?
+  #     @cart = Cart.where(:user_id => current_user.id)[0]
+  #     @content = @cart.items
+  #     @price = 0
+  #     @content.each_with_index do |content, index| 
+  #       @price += content.price * @cart.quantities[index].to_i
+  #     end
+  #     if @cart.quantities != []
+  #       @order = Order.create!(user: @cart.user, quantities: @cart.quantities, price: @price)
+  #       @order.item_ids = @cart.item_ids
+  #       @cart.quantities = []
+  #       @cart.save
+  #       Cart.where(:user_id => current_user.id)[0].item_ids = []
+  #       redirect_to "/product"
+  #       flash[:success] = "Vous avez réussi à passer votre commande. Retrouvez là dans votre onglet commande :)"
+  #     else
+  #       redirect_to "/cart"
+  #       flash[:alert] = "Vous devez avoir des éléments dans votre panier pour commander"
+  #     end
+  #   end
+  # end
 
   def empty
     Cart.where(:user_id => current_user.id)[0].item_ids = []

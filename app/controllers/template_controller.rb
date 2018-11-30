@@ -34,5 +34,4 @@ class TemplateController < ApplicationController
 	def showproduct
 		@individual = Item.find(params[:id])
 	end
-	
 end
