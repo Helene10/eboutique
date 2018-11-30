@@ -10,22 +10,8 @@
 <meta name="keywords" content="responsive, retina ready, shop bootstrap template, html5, css3" />
 <meta name="author" content="KingStudio.ro">
 
-<!-- favicon -->
-<!-- <link rel="icon" href="images/favicon.png"> -->
 <!-- page title -->
 <title>inCart - Responsive Shop Theme</title>
-<!-- bootstrap css -->
-<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-<!-- css -->
-<!-- <link href="css/style.css" rel="stylesheet">
-<link href="css/animate.css" rel="stylesheet">
-<link href="css/owl.carousel.css" rel="stylesheet">
-<link href="css/owl.theme.css" rel="stylesheet"> -->
-<!-- fonts -->
-<!-- <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet"> -->
-<!-- <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href='fonts/FontAwesome.otf' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/linear-icons.css"> -->
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -108,63 +94,10 @@
 
 <!-- content -->
 
-<!-- categories -->
-<section id="categories">
-    <div class="container">
-        <div class="page-header text-center wsub">
-            <h2>Shop Categories</h2>
-        </div><!--/ page-header -->
-        <p class="title-description text-center">Proin malesuada commodo magna, eu porta nulla luctus id. Integer bibendum dolor id mi dignissim pulvinar. Proin tincidunt elit in augue congue efficitur.</p>
-        <div class="row">
-
-            <div class="col-sm-4 category">
-                <a href="index.html">
-                    <div class="category-item">
-                        <%= image_tag('category1.jpg') %>
-                        <div class="overlay">
-                            <div class="caption">
-                                <h4>Fashion</h4>
-                            </div>
-                        </div>
-                    </div><!-- / category-item -->
-                </a>
-            </div><!-- / category -->
-
-            <div class="col-sm-4 category">
-                <a href="index2.html">
-                    <div class="category-item">
-                        <%= image_tag('category2.jpg') %>
-                        <div class="overlay">
-                            <div class="caption">
-                                <h4>Furniture</h4>
-                            </div>
-                        </div>
-                    </div><!-- / category-item -->
-                </a>
-            </div><!-- / category -->
-
-            <div class="col-sm-4 category">
-                <a href="index3.html">
-                    <div class="category-item">
-                        <%= image_tag('category1.jpg') %>
-                        <div class="overlay">
-                            <div class="caption">
-                                <h4>Art</h4>
-                            </div>
-                        </div>
-                    </div><!-- / category-item -->
-                </a>
-            </div><!-- / category -->
-
-        </div><!-- / row -->
-    </div><!-- / container -->
-</section>
-<!-- / categories -->
-
 <!-- featured-products -->
 <section id="featured-products">
     <div class="page-header text-center wsub">
-        <h2>Featured Products 8</h2>
+        <h2>Featured Products</h2>
     </div><!--/ page-header -->
     <div id="products-carousel" class="owl-carousel">
         <% @item.last(8).shuffle.each do |item|  %> 
@@ -172,19 +105,19 @@
         <div class="item product">
             <!-- <span class="sale-label">SALE</span> -->
             <!-- / sale-label -->
-            <a href="/single/<%= item.id %>" class="product-link"></a>
+            <a href="/product/<%= item.id %>" class="product-link"></a>
             <!-- / product-link -->
             <img src="<%= item.image_url %>">
             <!-- / product-image -->
 
             <!-- product-hover-tools -->
             <div class="product-hover-tools">
-                <a href="/single/<%= item.id %>" class="view-btn">
+                <a href="/product/<%= item.id %>" class="view-btn">
                     <i class="lnr lnr-eye"></i>
                 </a>
-                <a href="shopping-cart.html" class="add-to-cart">
-                    <i class="lnr lnr-cart"></i>
-                </a>
+                <%if user_signed_in?%>
+                  <%= link_to raw("<i class='lnr lnr-cart'></i>"), "/cart?id_add="+ item.id.to_s, class: "add-to-cart",  method: :post%>
+                <%end%>
             </div><!-- / product-hover-tools -->
 
             <!-- product-details -->
@@ -210,19 +143,19 @@
             <% @item.last(3).each do |item|  %>
             <!-- product -->
             <div class="col-xs-6 col-md-4 product">
-                <a href="/single/<%= item.id %>" class="product-link"></a>
+                <a href="/product/<%= item.id %>" class="product-link"></a>
                 <!-- / product-link -->
                 <img src="<%= item.image_url %>">
                 <!-- / product-image -->
 
                 <!-- product-hover-tools -->
                 <div class="product-hover-tools">
-                    <a href="/single/<%= item.id %>" class="view-btn">
+                    <a href="/product/<%= item.id %>" class="view-btn">
                         <i class="lnr lnr-eye"></i>
                     </a>
-                    <a href="shopping-cart.html" class="add-to-cart">
-                        <i class="lnr lnr-cart"></i>
-                    </a>
+                    <%if user_signed_in?%>
+                      <%= link_to raw("<i class='lnr lnr-cart'></i>"), "/cart?id_add="+ item.id.to_s, class: "add-to-cart",  method: :post%>
+                    <%end%>
                 </div><!-- / product-hover-tools -->
 
                 <!-- product-details -->
@@ -301,26 +234,6 @@
     </div><!-- / container -->
 </section>
 <!-- / newsletter -->
-
-<!-- brands carousel -->
-<!-- <section id="brands">
-    <h2 class="hidden">&nbsp;</h2>
-    <div class="container">
-        <div id="brands-carousel" class="owl-carousel">
-            <div class="item"><img src="images/brand1.png" alt=""></div>
-            <div class="item"><img src="images/brand2.png" alt=""></div>
-            <div class="item"><img src="images/brand3.png" alt=""></div>
-            <div class="item"><img src="images/brand4.png" alt=""></div>
-            <div class="item"><img src="images/brand5.png" alt=""></div>
-            <div class="item"><img src="images/brand6.png" alt=""></div>
-            <div class="item"><img src="images/brand7.png" alt=""></div>
-            <div class="item"><img src="images/brand8.png" alt=""></div>
-            <div class="item"><img src="images/brand9.png" alt=""></div>
-            <div class="item"><img src="images/brand10.png" alt=""></div>
-        </div>  -->
-    <!-- </div>/ container
-</section> -->
-<!-- / brands carousel -->
 
 <!-- / content -->
 
