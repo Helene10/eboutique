@@ -93,23 +93,26 @@
 <!-- featured-products -->
 <section id="featured-products">
     <div class="page-header text-center wsub">
-        <h2>Featured Products</h2>
+        <h2>Featured Products 8</h2>
     </div><!--/ page-header -->
     <div id="products-carousel" class="owl-carousel">
-        <% @item.last(6).shuffle.each do |item|  %> 
+        <% @item.last(8).shuffle.each do |item|  %> 
         <!-- item -->
         <div class="item product">
             <!-- <span class="sale-label">SALE</span> -->
             <!-- / sale-label -->
-            <a href="/product/<%= item.id %>" class="product-link"></a>
+            <a href="/single/<%= item.id %>" class="product-link"></a>
             <!-- / product-link -->
-            <%= image_tag(item.image_url) %>
+            <img src="<%= item.image_url %>">
             <!-- / product-image -->
 
             <!-- product-hover-tools -->
             <div class="product-hover-tools">
-                <a href="/product/<%= item.id %>" class="view-btn">
+                <a href="/single/<%= item.id %>" class="view-btn">
                     <i class="lnr lnr-eye"></i>
+                </a>
+                <a href="shopping-cart.html" class="add-to-cart">
+                    <i class="lnr lnr-cart"></i>
                 </a>
             </div><!-- / product-hover-tools -->
 
