@@ -10,21 +10,6 @@
 <meta name="keywords" content="responsive, retina ready, shop bootstrap template, html5, css3" />
 <meta name="author" content="KingStudio.ro">
 
-<!-- favicon -->
-<link rel="icon" href="images/favicon.png">
-<!-- page title -->
-<title>inCart - Responsive Shop Theme</title>
-<!-- bootstrap css -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<!-- css -->
-<link href="css/style.css" rel="stylesheet">
-<link href="css/animate.css" rel="stylesheet">
-<!-- fonts -->
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href='fonts/FontAwesome.otf' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/linear-icons.css">
-
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -60,51 +45,54 @@
                 </tr>
             </thead>
             <tbody>
+                <%if @content%>
+                <% @content.each_with_index do |item, index| %>
                 <tr class="cart-item">
-                    <td class="image"><a href="#"><img src="images/product-small.jpg" alt=""></a></td>
-                    <td><a href="single-product.html">Women's Shirt</a></td>
-                    <td>$59</td>
-                    <td class="qty"><input type="number" step="1" min="0" name="cart" value="1" title="Qty" class="input-text qty text" size="4"></td>
-                    <td>$59</td>
-                    <td class="remove"><a href="#x" class="btn btn-danger-filled x-remove">×</a></td>
+                    <td class="image"><a href="/product/<%= item.id %>"><%= image_tag(item.image_url) %></a></td>
+                    <td><a href="/product/<%= item.id %>"><%= item.title %></a></td>
+                    <td><%= item.price  %> €</td>
+                    <!-- <td class="qty"><input type="number" step="1" min="0" name="cart" value="1" title="Qty" class="input-text qty text" size="4"></td> -->
+                    <td>
+                      <div class="d-flex flex-row align-items-center justify-content-center">
+                        <%= link_to " - ", cart_path(@cart, :id_modify => item.id, :increase => false), class: "btn btn-sm btn-success-filled btn-rounded", remote: true,  method: :patch%>
+                        &nbsp;<%= @cart.quantities[index]%>&nbsp;
+                        <%= link_to " + ", cart_path(@cart, :id_modify => item.id, :increase => true), class: "btn btn-sm btn-success-filled btn-rounded", remote: true,  method: :patch%>
+                      </div>
+                    </td>
+                    <td><%= item.price *  @cart.quantities[index].to_i %> €</td>
+                    <td class="remove"><%= link_to "x", cart_path(@cart, :id_delete => item.id), class: "btn btn-danger-filled x-remove", remote: true,  method: :delete, data: { confirm: "Are you sure?" } %></td>
                 </tr>
-                <tr class="cart-item">
-                    <td class="image"><a href="#"><img src="images/product-small.jpg" alt=""></a></td>
-                    <td><a href="single-product.html">Women's Jeans</a></td>
-                    <td>$69</td>
-                    <td class="qty"><input type="number" step="1" min="0" name="cart" value="2" title="Qty" class="input-text qty text" size="4"></td>
-                    <td>$138</td>
-                    <td class="remove"><a href="#x" class="btn btn-danger-filled x-remove">×</a></td>
-                </tr>
+                <% end %>
+                <% end %>
             </tbody>
         </table>
         <!-- / shopping cart table -->
 
         <div class="row cart-footer">
-            <div class="coupon col-sm-6">
-                <div class="input-group">
+           <div class="coupon col-sm-6">
+                <!-- <div class="input-group">
                     <input type="text" class="form-control rounded" id="coupon-code" placeholder="Coupon Code">
                     <span class="input-group-btn">
                     <button class="btn btn-primary-filled btn-rounded" type="button"><i class="lnr lnr-tag"></i> <span>Apply Coupon</span></button>
                     </span>
-                </div>
+                </div> -->
             </div><!-- / input-group -->
             <div class="update-cart col-sm-6">
-                <button class="btn btn-default-filled btn-rounded" type="button"><i class="lnr lnr-sync"></i> <span>Update Cart</span></button>
+                <%= link_to "Vider le panier", "/empty", class: "btn btn-warning btn-rounded" %>
             </div><!-- / update-cart -->
-
+            
             <div class="col-sm-6 cart-total">
                 <h4>Cart Total</h4>
-                <p>Subtotal: <span>$197</span></p>
-                <p>Shipping: <span>Free</span></p>
-                <p>Total: <span>$197</span></p>
+                <p>Total: <span><%=@price%> €</span></p>
             </div><!-- / cart-total -->
-
+            
             <div class="col-sm-6 cart-checkout">
-                <a href="shop-right.html" class="btn btn-default-filled btn-rounded"><i class="lnr lnr-cart"></i> <span>Continue Shopping</span></a>
-                <a href="checkout.html" class="btn btn-primary-filled btn-rounded"><i class="lnr lnr-exit"></i> <span>Proceed to Checkout</span></a>
+              <% if @price !=0 %>
+                <a href="/product" class="btn btn-default-filled btn-rounded"><i class="lnr lnr-cart"></i> <span>Continue Shopping</span></a>
+                <%= link_to raw("<i class='lnr lnr-exit'></i>"+"<span>  Proceed to Checkout</span>"), "/charges/new", class: "btn btn-primary-filled btn-rounded" %>
+                <% end %>
             </div><!-- / cart-checkout -->
-
+            
 
         </div><!-- / row -->
     </div><!-- / container -->
@@ -115,12 +103,12 @@
 
 
 <!-- javascript -->
-<script src="js/jquery.min.js"></script>
+<!-- <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.easing.min.js"></script> -->
 
 <!-- preloader -->
-<script src="js/preloader.js"></script>
+<!-- <script src="js/preloader.js"></script> -->
 <!-- / preloader -->
 
 <!-- / javascript -->

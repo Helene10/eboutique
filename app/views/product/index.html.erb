@@ -50,7 +50,7 @@
         <div class="row">
 
             <div class="col-sm-12 content-area">
-                <p class="shop-results">Showing <strong>1-12</strong> of <strong><%= @item.count  %></strong> items. 
+                <p class="shop-results">Showing <strong>1-<%= @item.count  %></strong> items. 
                     <span class="pull-right">
                         <!-- <select class="selectpicker">
                             <optgroup label="Sort By:">
@@ -68,19 +68,19 @@
                     <% @item.each do |item|  %>
                     <!-- product -->
                     <div class="col-xs-6 col-md-3 product">
-                        <a href="/single/<%= item.id %>" class="product-link"></a>
+                        <a href="/product/<%= item.id %>" class="product-link"></a>
                         <!-- / product-link -->
-                        <img src="<%= item.image_url %>" >
+                        <%= image_tag(item.image_url) %>
                         <!-- / product-image -->
 
                         <!-- product-hover-tools -->
                         <div class="product-hover-tools">
-                            <a href="/single/<%= item.id %>" class="view-btn">
+                            <a href="/product/<%= item.id %>" class="view-btn">
                                 <i class="lnr lnr-eye"></i>
                             </a>
-                            <a href="shopping-cart.html" class="add-to-cart">
-                                <i class="lnr lnr-cart"></i>
-                            </a>
+                            <%if user_signed_in?%>
+                              <%= link_to raw("<i class='lnr lnr-cart'></i>"), "/cart?id_add="+ item.id.to_s, class: "add-to-cart",  method: :post%>
+                            <%end%>
                         </div><!-- / product-hover-tools -->
 
                         <!-- product-details -->
